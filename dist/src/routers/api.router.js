@@ -1,0 +1,11 @@
+"use strict";
+const express = require("express");
+const apiRouter = express.Router();
+const todoRouter = require("./todo.router");
+apiRouter.use(express.json());
+// apiRouter.get("/", getEndpoints);
+apiRouter.use("/todos", todoRouter);
+// apiRouter.use("/articles", articlesRouter);
+// apiRouter.use("/comments", commentsRouter);
+// apiRouter.use("/users", usersRouter);
+module.exports = apiRouter;
