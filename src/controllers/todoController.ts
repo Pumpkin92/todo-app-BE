@@ -25,7 +25,6 @@ export const addTodo = async (req: Request, res: Response) => {
   try {
     const newTodo = await createTodo(title, description);
     if (newTodo) {
-      console.log("worked");
       res
         .status(200)
         .json({ data: newTodo, message: "New Todo Created Successfully!!!" });
@@ -33,7 +32,6 @@ export const addTodo = async (req: Request, res: Response) => {
       res.status(409).send("Bad Request");
     }
   } catch (error) {
-    console.error(error);
     res.status(500).send("Internal Server Error");
   }
 };
@@ -41,13 +39,11 @@ export const addTodo = async (req: Request, res: Response) => {
 export const removeTodo = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const deleted = await deleteTodo(parseInt(id));
     if (deleted) {
       res.status(200).send("Todo deleted successfully!!!");
     }
   } catch (error) {
-    console.error(error);
     res.status(500).send("Internal Server Error");
   }
 };

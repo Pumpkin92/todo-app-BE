@@ -1,5 +1,4 @@
 import { addItem, removeItem } from "../controllers/itemController";
-import { addTodo } from "../controllers/todoController";
 
 const express = require("express");
 const itemRouter = express.Router();

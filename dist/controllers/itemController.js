@@ -34,9 +34,9 @@ const addItem = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.addItem = addItem;
 const removeItem = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { todoId } = req.params;
-        console.log(todoId);
-        const deleted = yield (0, itemModel_1.deleteTodoItem)(parseInt(todoId));
+        console.log(req.params);
+        const { id } = req.params;
+        const deleted = yield (0, itemModel_1.deleteTodoItem)(parseInt(id));
         if (deleted) {
             res.status(200).send("Todo deleted successfully!!!");
         }
